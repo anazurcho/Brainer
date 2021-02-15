@@ -65,13 +65,24 @@ module.exports = {
                 data.id
             ],
             (error, results, fields) => {
-
                 if (error) {
-                    return callBack(error)
+                    callBack(error);
                 }
-                return callBack(null, results[0])
+                // console.log(results)
+                // OkPacket {
+                //     fieldCount: 0,
+                //     affectedRows: 1,
+                //     insertId: 0,
+                //     serverStatus: 2,
+                //     warningCount: 0,
+                //     message: '(Rows matched: 1  Changed: 1  Warnings: 0',
+                //     protocol41: true,
+                //     changedRows: 1
+                //   }
+                return callBack(null, results[0]);
+                
             }
-        )
+        );
     },
     deleteUser: (data, callBack) => {
         pool.query(

@@ -1,0 +1,19 @@
+# POST http://localhost:3001/api/users/login HTTP/1.1
+# content-type: application/json
+
+# {
+#     "name": "ana",
+#     "email": "ana",
+#     "password": "ana"
+# }
+
+####
+
+GET  https://localhost:3001/api/users/ HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJyZXN1bHQiOnsiaWQiOjM2LCJuYW1lIjoiYW5hIiwiZW1haWwiOiJhbmEifSwiaWF0IjoxNjEzMzkxNTE4LCJleHAiOjE2MTMzOTUxMTh9.6mq7cXN680dUVdxiAId8S66k-dLolgvv7E03rMZ97_g
+# {
+#     "name": "ana",
+#     "email": "ana",
+#     "password": "ana"
+# }

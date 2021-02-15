@@ -60,12 +60,12 @@ module.exports = {
             if (result) {
                 results.password = undefined;
                 const jsontoken = sign({ result: results }, process.env.JSONTOKEN, {
-                  expiresIn: "1h"
+                    expiresIn: "1h"
                 });
                 return res.json({
                     success: 1,
                     message: "login successfully",
-                      token: jsontoken
+                    token: jsontoken
                 });
             } else {
                 return res.json({
@@ -88,26 +88,41 @@ module.exports = {
             })
         })
     },
+    // updateUser: (req, res) => {
+    //     const body = req.body;
+    //     const salt = genSaltSync(6);
+    //     body.password = hashSync(body.password, salt);
+    //     updateUser(body, (err, results) => {
+    //         if (err) {
+    //             console.log(err);
+    //             return;
+    //         }
+    //         if (result == 0) {
+    //             return res.json({
+    //                 success: 0,
+    //                 message: "faled to update"
+    //             })
+    //         }
+    //         return res.status(200).json({
+    //             success: 1,
+    //             message: "updated succesfully"
+    //         })
+    //     })
+    // },
     updateUser: (req, res) => {
         const body = req.body;
-        const salt = genSaltSync(6);
+        const salt = genSaltSync(10);
         body.password = hashSync(body.password, salt);
         updateUser(body, (err, results) => {
             if (err) {
                 console.log(err);
                 return;
             }
-            if (result == 0) {
-                return res.json({
-                    success: 0,
-                    message: "faled to update"
-                })
-            }
-            return res.status(200).json({
+            return res.json({
                 success: 1,
-                message: "updated succesfully"
-            })
-        })
+                message: "updated successfully"
+            });
+        });
     },
     deleteUser: (req, res) => {
         const data = req.body;
